@@ -1,0 +1,1 @@
+{"version":3,"file":"service.js","mappings":"AAAAA,QAAQC,IAAI","sources":["webpack://consent-auto-rejector/./Extension/background.js"],"sourcesContent":["console.log(\"Background worker running\");\n"],"names":["console","log"],"sourceRoot":""}

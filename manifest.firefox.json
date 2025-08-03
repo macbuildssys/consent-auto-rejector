@@ -1,7 +1,7 @@
 {
 	"name": "consent-auto-rejector",
-	"description": "Automatic handling of GDPR consent forms",
-	"author": "CAVI - Aarhus University",
+	"description": "",
+	"author": "mac",
 	"homepage_url": "https://github.com/mabuildssys/connsent-auto-rejector",
 	"version": "REPLACED_BY_BUILD_SCRIPT",
 	"manifest_version": 3,
