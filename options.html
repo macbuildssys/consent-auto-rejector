@@ -1,150 +1,166 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Consent Auto-Rejector</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 1em;
-      width: 320px;
-      background: #f9f9f9;
-    }
-    .status {
-      font-weight: bold;
-      margin-bottom: 1em;
-    }
-    button {
-      padding: 0.5em 1em;
-      font-size: 1em;
-      border: none;
-      background: #007BFF;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
-      width: 100%;
-      margin-bottom: 1em;
-    }
-    button.off {
-      background: #dc3545;
-    }
-    #whitelist {
-      background: white;
-      border: 1px solid #ccc;
-      padding: 0.5em;
-      border-radius: 4px;
-      max-height: 150px;
-      overflow-y: auto;
-      margin-bottom: 0.5em;
-    }
-    #whitelist h4 {
-      margin: 0 0 0.5em 0;
-      font-weight: normal;
-      font-size: 1em;
-    }
-    #whitelist-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    #whitelist-list li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 3px 0;
-      border-bottom: 1px solid #eee;
-    }
-    #whitelist-list li:last-child {
-      border-bottom: none;
-    }
-    .remove-btn {
-      background: transparent;
-      border: none;
-      color: #dc3545;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 1.1em;
-      line-height: 1;
-    }
-    #add-domain-container {
-      display: flex;
-      margin-bottom: 1em;
-    }
-    #add-domain-input {
-      flex: 1;
-      padding: 0.3em 0.5em;
-      font-size: 1em;
-      border: 1px solid #ccc;
-      border-radius: 4px 0 0 4px;
-    }
-    #add-domain-btn {
-      padding: 0.3em 0.7em;
-      font-size: 1em;
-      border: none;
-      background: #28a745;
-      color: white;
-      border-radius: 0 4px 4px 0;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    #add-domain-btn:disabled {
-      background: #94d3a2;
-      cursor: not-allowed;
-    }
-    #filter-input {
-      width: 100%;
-      padding: 0.3em 0.5em;
-      margin-bottom: 0.5em;
-      font-size: 1em;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    #error {
-      color: #dc3545;
-      margin-bottom: 1em;
-      min-height: 18px;
-    }
-  </style>
+    <title>[[OPTIONS_TITLE]]</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <link rel="stylesheet" href="ui.css">
 </head>
+
 <body>
-  <main>
-    <div class="status" id="status">Loading...</div>
-
-    <button id="toggle" class="off">Add this site to whitelist</button>
-    <button id="global-toggle">Enable Global Blocker</button>
-
-    <div id="error"></div>
-
-    <div id="add-domain-container">
-      <input type="text" id="add-domain-input" placeholder="Add domain to whitelist" />
-      <button id="add-domain-btn" disabled>Add</button>
+    <div class="prehead">
+        <img src="logo.png">
+        <div class="title">
+            <h1>[[EXTENSION_NAME]]</h1>
+            <h2>[[EXTENSION_SUBTITLE]]</h2>
+        </div>
     </div>
+    <div class="header">
+        <ul role="tablist">
+            <li class="menuitem choices active" role="tab" tabindex="0" aria-controls="categoryListTab" aria-selected="true">[[YOUR_CHOICE]]</li>
+            <li class="menuitem general" role="tab" tabindex="-1" aria-controls="generalTab" aria-selected="false">[[DISPLAY]]</li>
+            <li class="menuitem rules" role="tab" tabindex="-1" aria-controls="rulesListTab" aria-selected="false">[[RULE_LIST]]</li>
+            <li class="menuitem about" role="tab" tabindex="-1" aria-controls="aboutTab" aria-selected="false">[[ABOUT]]</li>
+	    <div style="flex: 1 1 auto"></div>
+            <li class="menuitem debug" role="tab" tabindex="-1" aria-controls="debugTab" aria-selected="false">[[DEBUG]]</li>
+        </ul>
+    </div>
+    <div class="configurator">
+        <div class="tab tab_uc" id="categoryListTab" role="tabpanel" tabindex="0">
+            <div class="helptext" id="permissions" style="display:none">
+                <p>
+                    [[PERMISSIONS_DESCRIPTION]]:
+                </p>
+                <ul class="permissionslist">
+                    <li><h2>[[PERMISSIONS_READ]]</h2><div>[[PERMISSIONS_READ_DETAIL]]</div></li>
+                    <li><h2>[[PERMISSIONS_TABS]]</h2><div>[[PERMISSIONS_TABS_DETAIL]]</li>
+                    <li><h2>[[PERMISSIONS_STORAGE]]</h2><div>[[PERMISSIONS_STORAGE_DETAIL]]</div></li>
+                </ul>
+                <p>
+                    [[PERMISSIONS_NONE]]
+                </p>
+                <p>
+                    <button>[[PERMISSIONS_GRANT]]</button>
+                </p>                
+                <div id="failedpermissions" style="display:none">
+                    <em>Please note:</em>
+                    [[PERMISSIONS_FAIL]]:
+                    <ul>
+                        <li>
+                            <b>Safari (Mac)</b><br>
+                            Settings > Extensions > consent-auto-rejector > Always Allow on Every Website
+                        </li>
+                        <li>
+                            <b>Safari (iOS)</b><br>
+                            Settings > Safari > Extensions > consent-auto-rejector > Permissions > All Websites > Allow
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+            <div class="helptext">
+                [[CHOICE_DESCRIPTION]]
+            </div>
+            <ul class="categorylist">
+                <!-- categories -->
+            </ul>
+        </div>
+        <div class="tab tab_settings" style="display:none" id="generalTab" role="tabpanel" tabindex="0">
+            <div class="helptext">
+                [[DISPLAY_DESCRIPTION]]
+            </div>
+            <ul class="settingsList">
+                <li class="hideOrPip">
+                    <div>[[HIDE_OR_PIP_DESCRIPTION]]</div>
+                    <form id="hideOrPip">
+			<div>
+				<input type="radio" name="hideOrPip" id="hop_pip" value="pip"/>
+				<label for="hop_pip"><h2>Minimize</h2><img src="minimize.svg">[[HIDE_OR_PIP_PIP_LABEL]]</label>
+			</div>
+			<div>
+				<input type="radio" name="hideOrPip" id="hop_hide" value="hide"/>
+				<label for="hop_hide"><h2>Hide</h2><img src="hide.svg"> [[HIDE_OR_PIP_HIDE_LABEL]]</label>
+			</div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div class="tab tab_rl" style="display:none" id="rulesListTab" role="tabpanel" tabindex="0">
+            <div class="helptext">
+                [[RULES_DESCRIPTION]]
+            </div>
+            <ul class="rulelist">
+                <!-- rulelists -->
+            </ul>
+            <div class="ruleoptions">
+                <input id="newurl" type="url" placeholder="https://..."> <button id="urladd">[[ADD_LIST]]</button>
+            </div>
+            <div class="helptext" style="padding-top:0">
+                <p>[[RULES_UPDATE_DESCRIPTION]]</p><button
+                    id="forceupdate">[[UPDATE_RULES_NOW]]</button><br /><br /><br />
+                <h2>[[RULE_GENERATOR]]</h2>
+                <p>
+                    [[RULE_GENERATOR_DESCRIPTION]]
+                </p>
+                <p>
+                    <button id="rulesEditor">[[OPEN_RULE_GENERATOR]]</button>
+                </p>
 
-    <input type="text" id="filter-input" placeholder="Filter whitelist" />
-
-    <section id="whitelist">
-      <h4>Whitelisted Domains:</h4>
-      <ul id="whitelist-list"></ul>
-    </section>
-  </main>
-
-  <script src="popup.js"></script>
+            </div>
+        </div>
+        <div class="tab tab_about" style="display:none" id="aboutTab" role="tabpanel" tabindex="0">
+            <div class="helptext">
+                [[ABOUT_DESCRIPTION]]
+            </div>
+	    <div class="saves">
+		<span id="clicks">0</span> [[CLICKS_SAVED]]
+	    </div>
+            <table class="logList">
+		<tr><th>[[CMP]]</th><th>[[POPUPS_FILLED]]</th><th>[[CLICKS_MADE]]</th></tr>
+	    </table>
+            <div class="logoptions">
+                <button id="clearLog">[[CLEAR]]</button>
+            </div>
+	    <div class="helptext">
+	    <h2>License</h2><br />
+	    consent-auto-rejector is made available on <a href="https://github.com/macbuildssys/consent-auto-rejecter">Github</a> under the MIT license
+<p>
+MIT License
+</p><p>
+Copyright (c) 2019,2020,2021,2022,2023,2024 Janus Bager Kristensen and Rolf Bagge,
+CAVI - Center for Advanced Visualization and Interaction, Aarhus University
+</p><p>
+Permission is hereby granted, free of charge, to any person obtaining a copy<br />
+of this software and associated documentation files (the "Software"), to deal<br />
+in the Software without restriction, including without limitation the rights<br />
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell<br />
+copies of the Software, and to permit persons to whom the Software is<br />
+furnished to do so, subject to the following conditions:<br />
+</p><p>
+The above copyright notice and this permission notice shall be included in all<br />
+copies or substantial portions of the Software.<br />
+</p><p>
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</p>
+	    </div>
+        </div>
+        <div class="tab tab_dbg" style="display: none" id="debugTab" role="tabpanel" tabindex="0">
+            <ul class="flags">
+                <!-- debugflags -->
+            </ul>
+            <div class="helptext">
+                <p>
+                    <button id="clearDebugFlags">Clear Debug flags</button>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="ui.js"></script>
 </body>
-</html>
- -->
 
- <!DOCTYPE html>
-<html>
-<head>
-  <title>Consent Rejector Settings</title>
-  <link rel="stylesheet" href="options.css" />
-</head>
-<body>
-  <h1>Consent Rejector</h1>
-  <p>This extension automatically rejects cookies based on Consent-O-Matic rules.</p>
-  <button id="test">Test CMP Detection & Reject</button>
-  <pre id="log"></pre>
-  <script src="options.js"></script>
-</body>
 </html>

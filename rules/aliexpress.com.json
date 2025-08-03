@@ -1,6 +1,6 @@
 
 {
-    "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
+    "$schema": "https://raw.githubusercontent.com/macbuildssys/consent-auto-rejecter/master/rules.schema.json",
     "AliExpress": {
         "detectors": [
             {

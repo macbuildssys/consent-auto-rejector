@@ -5,7 +5,7 @@
   "manifest_version": 3,
 
   "author": "mac",
-  "homepage_url": "https://github.com/cavi-au/Consent-O-Matic",
+  "homepage_url": "https://github.com/macbuildssys/consent-auto-rejecter",
 
   "permissions": [
     "activeTab",

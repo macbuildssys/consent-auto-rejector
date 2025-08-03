@@ -144,11 +144,11 @@ function fetchRules(forceUpdate) {
     let rulePromise = new Promise((resolve, reject) => {
         GDPRConfig.getRuleLists().then((ruleLists) => {
 
-            let oldDefaultListIndex = ruleLists.indexOf("https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/Rules.json");
+            let oldDefaultListIndex = ruleLists.indexOf("https://raw.githubusercontent.com/macbuildssys/consent-auto-rejecter/master/Rules.json");
 
             if(oldDefaultListIndex !== -1) {
                 console.log("Cleaning old rule list, and replacing with new reference based list...");
-                ruleLists[oldDefaultListIndex] = "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules-list.json"
+                ruleLists[oldDefaultListIndex] = "https://raw.githubusercontent.com/macbuildssysy/consent-auto-rejecter/master/rules-list.json"
                 GDPRConfig.setRuleLists(ruleLists);
             }
 
