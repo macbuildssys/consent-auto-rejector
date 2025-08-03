@@ -1,0 +1,62 @@
+[
+  {
+    "name": "OneTrust",
+    "rejectSelectors": [
+      "#onetrust-reject-all-handler",
+      ".onetrust-close-btn-ui",
+      ".ot-pc-refuse-all-handler"
+    ],
+    "bannerSelectors": [
+      "#onetrust-banner-sdk",
+      ".onetrust-pc-dark-filter"
+    ],
+    "popupSelectors": [
+      "#onetrust-banner-sdk",
+      ".onetrust-pc-dark-filter"
+    ],
+    "rejectTexts": [
+      "reject",
+      "decline"
+    ]
+  },
+  {
+    "name": "Cookiebot",
+    "rejectSelectors": [
+      "#CybotCookiebotDialogBodyButtonDecline",
+      ".CybotCookiebotDialogBodyButton--decline"
+    ],
+    "bannerSelectors": [
+      "#CybotCookiebotDialog"
+    ],
+    "popupSelectors": [
+      "#CybotCookiebotDialog"
+    ],
+    "rejectTexts": []
+  },
+  {
+    "name": "TrustArc",
+    "rejectSelectors": [
+      ".trustarc-denyall",
+      "[aria-label*=\"Reject\"]"
+    ],
+    "bannerSelectors": [
+      ".trustarc-banner",
+      ".trustarc-popup"
+    ],
+    "popupSelectors": [
+      ".trustarc-banner",
+      ".trustarc-popup"
+    ],
+    "rejectTexts": []
+  },
+  {
+    "name": "Generic",
+    "rejectSelectors": [],
+    "bannerSelectors": [],
+    "popupSelectors": [],
+    "rejectTexts": [
+      "reject",
+      "decline"
+    ]
+  }
+]

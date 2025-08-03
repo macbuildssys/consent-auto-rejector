@@ -1,0 +1,150 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Consent Auto-Rejector</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 1em;
+      width: 320px;
+      background: #f9f9f9;
+    }
+    .status {
+      font-weight: bold;
+      margin-bottom: 1em;
+    }
+    button {
+      padding: 0.5em 1em;
+      font-size: 1em;
+      border: none;
+      background: #007BFF;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+      width: 100%;
+      margin-bottom: 1em;
+    }
+    button.off {
+      background: #dc3545;
+    }
+    #whitelist {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 0.5em;
+      border-radius: 4px;
+      max-height: 150px;
+      overflow-y: auto;
+      margin-bottom: 0.5em;
+    }
+    #whitelist h4 {
+      margin: 0 0 0.5em 0;
+      font-weight: normal;
+      font-size: 1em;
+    }
+    #whitelist-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #whitelist-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 3px 0;
+      border-bottom: 1px solid #eee;
+    }
+    #whitelist-list li:last-child {
+      border-bottom: none;
+    }
+    .remove-btn {
+      background: transparent;
+      border: none;
+      color: #dc3545;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1em;
+      line-height: 1;
+    }
+    #add-domain-container {
+      display: flex;
+      margin-bottom: 1em;
+    }
+    #add-domain-input {
+      flex: 1;
+      padding: 0.3em 0.5em;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px 0 0 4px;
+    }
+    #add-domain-btn {
+      padding: 0.3em 0.7em;
+      font-size: 1em;
+      border: none;
+      background: #28a745;
+      color: white;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #add-domain-btn:disabled {
+      background: #94d3a2;
+      cursor: not-allowed;
+    }
+    #filter-input {
+      width: 100%;
+      padding: 0.3em 0.5em;
+      margin-bottom: 0.5em;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    #error {
+      color: #dc3545;
+      margin-bottom: 1em;
+      min-height: 18px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="status" id="status">Loading...</div>
+
+    <button id="toggle" class="off">Add this site to whitelist</button>
+    <button id="global-toggle">Enable Global Blocker</button>
+
+    <div id="error"></div>
+
+    <div id="add-domain-container">
+      <input type="text" id="add-domain-input" placeholder="Add domain to whitelist" />
+      <button id="add-domain-btn" disabled>Add</button>
+    </div>
+
+    <input type="text" id="filter-input" placeholder="Filter whitelist" />
+
+    <section id="whitelist">
+      <h4>Whitelisted Domains:</h4>
+      <ul id="whitelist-list"></ul>
+    </section>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+ -->
+
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Consent Rejector Settings</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <h1>Consent Rejector</h1>
+  <p>This extension automatically rejects cookies based on Consent-O-Matic rules.</p>
+  <button id="test">Test CMP Detection & Reject</button>
+  <pre id="log"></pre>
+  <script src="options.js"></script>
+</body>
+</html>
